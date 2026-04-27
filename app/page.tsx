@@ -5,7 +5,7 @@ import Script from "next/script";
 import { Button } from "../Components/ui/button";
 import { ArrowRight, CheckCircle2, Shield, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "../hooks/use-toast";
 import { sessionStore } from "@/lib/store";
 
 declare global {
