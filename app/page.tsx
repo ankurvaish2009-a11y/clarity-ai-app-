@@ -18,8 +18,9 @@ export default function Home() {
   const router = useRouter();
   const { toast } = useToast();
 
-  const handleUnlockClick = () => {
-    const userData = typeof window !== "undefined" ? localStorage.getItem("userData") : null;
+  const userDataRaw = typeof window !== "undefined" ? localStorage.getItem("userData") : null;
+const userData = userDataRaw ? JSON.parse(userDataRaw) : null;
+
 
     if (!userData) {
       toast({
