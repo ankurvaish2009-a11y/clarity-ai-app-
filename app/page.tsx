@@ -18,47 +18,6 @@ export default function Home() {
   const router = useRouter();
   const { toast } = useToast();
 
-  const userDataRaw = typeof window !== "undefined" ? localStorage.getItem("userData") : null;
-const userData = userDataRaw ? JSON.parse(userDataRaw) : null;
-
-
-    if (!userData) {
-      toast({
-        title: "Analysis Required",
-        description: "Please complete your free analysis first so we can generate your report.",
-      });
-      router.push("/analyze");
-      return;
-    }
-
-    // Razorpay logic with placeholder key
-    const RAZORPAY_KEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_dummy123";
-    
-    const options = {
-      key: RAZORPAY_KEY,
-      amount: 49900,
-      currency: "INR",
-      name: "Clarity Flow",
-      description: "Premium Clarity Report",
-      handler: function (response: any) {
-        router.push("/result");
-      },
-      prefill: {
-        name: userData.name,
-      },
-      theme: {
-        color: "#004EBF",
-      },
-    };
-
-    try {
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
-    } catch (e) {
-      console.error("Razorpay error", e);
-      router.push("/result"); // Fallback for dev/demo
-    }
-  };
 
   return (
     <div className="flex flex-col items-center">
