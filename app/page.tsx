@@ -19,7 +19,8 @@ export default function Home() {
   const { toast } = useToast();
 
   const handleUnlockClick = () => {
-    const userData = sessionStore.getUserData();
+    const userData = typeof window !== "undefined" ? localStorage.getItem("userData") : null;
+
     if (!userData) {
       toast({
         title: "Analysis Required",
