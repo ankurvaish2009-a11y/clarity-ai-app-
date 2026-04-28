@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Script from "next/script";
-import { Button } from "../Components/ui/button";
+import { Button } from "../components/ui/button";
 import { ArrowRight, CheckCircle2, Shield, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useToast } from "../hooks/use-toast";
